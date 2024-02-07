@@ -1,0 +1,136 @@
+body{
+    margin: 0px;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#srch-field {
+    width: 5rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    border: 2px solid green;
+}
+
+#btn {
+    width: 2rem;
+    background-image: url('https://pngfre.com/wp-content/uploads/Pokeball-1.png');
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    width: 500px;
+    height: 200px;
+    background-image: url('https://1000logos.net/wp-content/uploads/2017/05/Pokemon-Logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#pokemon-name {
+    font-family: cursive;
+    font-size: 1rem;
+}
+
+#poke-container {
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    margin: 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+#poke-img {
+    width: 80px;
+    height: 80px;
+    animation: img1 800ms;
+}
+
+@keyframes img {
+    from {
+        width: 80px;
+        height: 80px;
+    }
+
+    to {
+        width: 100px;
+        height: 100px;
+    }
+}
+@keyframes img1 {
+    from {
+        width: 95px;
+        height: 95px;
+    }
+
+    to {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+#poke-img:hover {
+    animation: img 800ms;
+    width: 100px;
+    height: 100px;
+}
+
+#NP-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#next-btn{
+    background-image: url('https://cdn-icons-png.flaticon.com/512/189/189253.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid gray;
+    border-radius: 50%;
+    margin-left: 50px;
+}
+#next-btn:hover{
+    border: 2px solid black;
+}
+
+#page-num {
+    font-size: 25px;
+}
+
+#pre-btn{
+    background-image: url('https://cdn-icons-png.flaticon.com/512/189/189254.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid gray;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+#pre-btn:hover{
+    border: 2px solid black;
+}
