@@ -6,7 +6,6 @@ search.id="search"
 const pokemonLimits = document.createElement("input");
 pokemonLimits.id="srch-field"
 pokemonLimits.placeholder="page no."
-// pokemonLimits.type="number"
 const btn = document.createElement("div");
 const main = document.createElement("div");
 let pokemonsList = []; 
@@ -20,21 +19,18 @@ async function init(){
     await getPokemons();
 }
 init();
-// btn.textContent = "Get Pokemon";
 search.appendChild(pokemonLimits);
 search.appendChild(btn);
 centeredDiv.appendChild(search);
 btn.addEventListener('click', async function(){
-    console.log(Number(pokemonLimits.value),"p")
-    if(!Number(pokemonLimits.value) || Number(pokemonLimits.value)<=0){
-        alert("Please Enter page number within 1-130");
-    }
-    else{
-    console.log(pokemonLimits.value,"value");
-    count = Number(pokemonLimits.value)*10
-    getPokemons();
-    page = Number(pokemonLimits.value)-1;
-    pageNumber();
+    const enteredPage = Number(pokemonLimits.value);
+     if (isNaN(enteredPage) || enteredPage <= 0 || enteredPage > 130) {
+        alert("Please enter a valid page number within 1-130");
+    } else {
+        count = enteredPage * 10;
+        await getPokemons();
+        page = enteredPage - 1;
+        pageNumber();
     }
 })
 
@@ -58,16 +54,11 @@ preBtn.addEventListener('click', async function(){
 async function callApi(limit = 1302){
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${limit}`);
     const cards = await response.json();
-    // console.log(cards.results,"y");
     pokemonsList = cards.results
-    // console.log(pokemonsList[1].name,"pokemon")
 }
 
 async function getPokemons(value = count) {
     main.innerHTML = "";
-    console.log(count, "count");
-
-    console.log(pokemonsList[1].name, "array");
 
     for (let index = value; index < value+10 && index <= pokemonsList.length; index++) {
         const pokemonMain = document.createElement("div");
@@ -90,7 +81,6 @@ async function getPokemons(value = count) {
 }
 function pageNumber(value=1) {
     page = page+value;
-    console.log(page,"page")
     document.getElementById('page-num').innerText = page;
 }
 
